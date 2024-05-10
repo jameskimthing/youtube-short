@@ -1,20 +1,21 @@
 function convertAmITheAssholeWords(text: string): string {
 	// Replace age and gender indicators
 	text = text.replace(
-		/\b(\d+)[,\s]*(?:([mMfF])|(?:[fF]\b))/g,
+		/\b(\d+)[,\s]*(?:([mMfF])|(?:[fF]\b))?/g,
 		(match, age, gender) => {
-			const formattedGender = gender
-				? gender.toLowerCase() === "m"
-					? "male"
-					: "female"
-				: "female";
-			return `(${age}, ${formattedGender})`;
+			if (gender) {
+				const formattedGender =
+					gender.toLowerCase() === "m" ? "male" : "female";
+				return `(${age}, ${formattedGender})`;
+			} else {
+				return `(${age})`;
+			}
 		}
 	);
 
 	// Replace duplicate parentheses
-	text = text.replace("((", "(");
-	text = text.replace("))", ")");
+	text = text.replace(/\(\(/g, "(");
+	text = text.replace(/\)\)/g, ")");
 
 	// Replace common phrases
 	text = text.replace(/\b(AITA|WIBTA|NTA|YTA|ESH|NAH|INFO)\b/g, (match) => {
