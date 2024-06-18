@@ -1,2 +1,6 @@
 node_modules
 .env
+credentials
+temp
+output.mp4
+assets

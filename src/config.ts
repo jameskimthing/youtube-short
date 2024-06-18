@@ -6,6 +6,8 @@ const CONFIG = {
 	SUPABASE_URL: process.env.SUPABASE_URL!,
 	PLAYWRIGHT_USER_AGENT:
 		"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
+	GOOGLE_APPLICATION_CREDENTIALS: process.env.GOOGLE_APPLICATION_CREDENTIALS!,
+	GOOGLE_AI_STUDIO_API_KEY: process.env.GOOGLE_AI_STUDIO_API_KEY!,
 } as const;
 
 export { CONFIG };

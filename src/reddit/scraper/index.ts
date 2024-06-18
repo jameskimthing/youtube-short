@@ -42,8 +42,8 @@ async function getPostsFromUrl(url: string) {
 				if (!title || !content) continue;
 
 				// Convert subreddit-specific phrases
-				title = await convertRedditWords(title, subreddit);
-				content = await convertRedditWords(content, subreddit);
+				// title = await convertRedditWords(title, subreddit);
+				// content = await convertRedditWords(content, subreddit);
 
 				// Insert post into database, skip if already exists
 				const post = { post_id, title, subreddit, author, score, content };
